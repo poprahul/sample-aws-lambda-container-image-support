@@ -68,10 +68,10 @@ The SAM CLI reads the application template to determine the API's routes and the
 
 ```yaml
       Events:
-        HelloWorld:
+        CustomerDetail:
           Type: Api
           Properties:
-            Path: /hello
+            Path: /getCustomerDetail
             Method: get
 ```
 

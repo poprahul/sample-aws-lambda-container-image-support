@@ -9,35 +9,35 @@ Globals:
   Function:
     Timeout: 3
 Resources:
-  HelloWorldFunction:
+  CustomerDetailFunction:
     Type: AWS::Serverless::Function
     Properties:
       PackageType: Image
       Events:
-        HelloWorld:
+        CustomerDetail:
           Type: Api
           Properties:
-            Path: /hello
+            Path: /getCustomerDetail
             Method: get
-      ImageUri: helloworldfunction:nodejs12.x-v1
+      ImageUri: customerdetailfunction:nodejs12.x-v1
     Metadata:
       DockerTag: nodejs12.x-v1
       DockerContext: ./hello-world
       Dockerfile: Dockerfile
 Outputs:
-  HelloWorldApi:
+  CustomerDetailApi:
     Description: API Gateway endpoint URL for Prod stage for Hello World function
     Value:
-      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
-  HelloWorldFunction:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/getCustomerDetail/
+  CustomerDetailFunction:
     Description: Hello World Lambda Function ARN
     Value:
       Fn::GetAtt:
-      - HelloWorldFunction
+      - CustomerDetailFunction
       - Arn
-  HelloWorldFunctionIamRole:
+  CustomerDetailFunctionIamRole:
     Description: Implicit IAM Role created for Hello World function
     Value:
       Fn::GetAtt:
-      - HelloWorldFunctionRole
+      - CustomerDetailFunctionRole
       - Arn
