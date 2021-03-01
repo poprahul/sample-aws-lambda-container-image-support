@@ -1,0 +1,9 @@
+docker build -t <username>/<image_name>:<tag_name> .  # <username>/<image_name>: is optional format, you could just use image_name
+
+aws ecr create-repository --repository-name <repo-name> --image-scanning-configuration scanOnPush=true
+
+docker tag <image_name>:latest <accountID>.dkr.ecr.<region>.amazonaws.com/<repo-name>:latest # docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+
+aws ecr get-login-password | docker login --username AWS --password-stdin <accountID>.dkr.ecr.us-east-1.amazonaws.com
+
+docker push <accountID>.dkr.ecr.<region>.amazonaws.com/<repo-name>:latest

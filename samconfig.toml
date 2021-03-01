@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "my-sam-project"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-rhb1t99t0d2u"
+s3_prefix = "my-sam-project"
+image_repository = "681808143105.dkr.ecr.us-east-1.amazonaws.com/get-customer"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
