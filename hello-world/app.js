@@ -20,6 +20,11 @@ exports.lambdaHandler = async (event, context) => {
         // const ret = await axios(url);
         response = {
             'statusCode': 200,
+            'headers': {
+                "Access-Control-Allow-Headers" : "Content-Type",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+            },
             'body': JSON.stringify({
                 message: faker.helpers.createCard(),
                 // location: ret.data.trim()
